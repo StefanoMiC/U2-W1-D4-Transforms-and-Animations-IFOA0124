@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            margin-top: 5rem;
+            border: 1px solid red;
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 5rem;
+        }
+
+        .rectangle {
+            width: 250px;
+            padding: 1rem 3rem;
+            background-color: black;
+            color: white;
+        }
+
+        /* STATO A (punto di partenza) */
+        .btn {
+            font-size: 16px;
+            background-color: rgb(244, 244, 244);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 6px;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+            border: 1px solid rgb(234, 234, 234);
+
+            /* transition: box-shadow 1s, translate 3s, scale .5s, font-size 2s; */
+            transition: all 150ms;
+        }
+
+        /* STATO B (punto di arrivo dell'animazione) */
+        .btn:hover {
+            translate: 0 -4px;
+            scale: 1.05;
+            box-shadow: 0 10px 15px rgb(0 0 0 / 6%);
+            font-size: 18px;
+
+            transition: all 1s 1s;
+        }
+
+        /* .btn:hover {
+            background-color: rgb(237, 237, 237);
+        } */
+
+        .btn:active {
+            box-shadow: 0 0 0 transparent;
+            /* translate: 0 -4px; */
+            scale: 0.95;
+            font-size: 16px;
+        }
+
+        .n1,
+        .n2 {
+            transition: width 2s;
+        }
+
+
+        .n1 {
+            background-color: aqua;
+            transition-delay: 1s
+        }
+
+        .n2 {
+            background-color: coral;
+            transition-timing-function: cubic-bezier(.3, -0.36, 0, .99);
+        }
+
+        .n1:hover,
+        .n2:hover {
+            width: 600px
+        }
+
+        .card {
+            width: 360px;
+            margin-inline: auto;
+            border: 2px solid lightgray;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 15px -10px rgb(0 0 0 / 20%);
+            position: relative;
+        }
+
+        .card .img-wrapper {
+            position: relative;
+        }
+
+        .card img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .card h4 {
+            position: absolute;
+            bottom: 0;
+
+            font-size: 46px;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: -1px;
+            font-weight: 900;
+            color: white;
+
+            translate: -170px;
+            transition: translate 1s;
+        }
+
+        .card button {
+            width: 100%;
+            font-size: 16px;
+            background-color: rgb(11, 11, 11);
+            color: rgb(237, 237, 237);
+            border: none;
+            border-radius: 6px;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+            border: 1px solid rgb(234, 234, 234);
+        }
+
+        .card-body {
+            padding: 1rem;
+            position: absolute;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            /* margin-top: -62px; */
+            transition: opacity 1s;
+        }
+
+        .card-body>* {
+            opacity: 0;
+            translate: 0px -6px;
+            transition: all .5s;
+        }
+
+        .card-body p:first-of-type {
+            font-style: italic;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        .card-body>p:last-of-type {
+            font-family: monospace;
+        }
+
+        .card:hover h4 {
+            translate: 0;
+        }
+
+        .card:hover .card-body {
+            position: relative;
+            opacity: 1;
+        }
+
+        .card:hover .card-body>* {
+            opacity: 1;
+            translate: 0px 0px;
+        }
+
+        .card:hover .card-body>:first-child {
+            transition-delay: .5s;
+        }
+
+        .card:hover .card-body>:nth-child(2) {
+            transition-delay: .6s;
+        }
+
+        .card:hover .card-body>:nth-child(3) {
+            transition-delay: .7s;
+        }
+
+        .card:hover .card-body>:nth-child(4) {
+            transition-delay: .8s;
+        }
+    </style>
+    <title>Transitions</title>
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn">hover me</button>
+        <div class="rectangle n1"></div>
+        <div class="rectangle n2"></div>
+    </div>
+
+    <div class="card">
+        <div class="img-wrapper">
+            <img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="woods">
+            <h4>Hiking</h4>
+        </div>
+        <!-- <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/10190/GettyImages-499689946.jpg" alt="woods"> -->
+        <div class="card-body">
+            <p>Lorem, ipsum dolor.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, aut?</p>
+            <p>2024tm</p>
+            <button>Discover More</button>
+        </div>
+    </div>
+</body>
+
+</html>

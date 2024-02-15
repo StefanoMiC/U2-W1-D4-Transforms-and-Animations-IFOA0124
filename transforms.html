@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            margin-top: 5rem;
+            border: 1px solid red;
+        }
+
+        .rectangle {
+            width: 250px;
+            padding: 1rem 3rem;
+            background-color: black;
+            color: white;
+        }
+
+        /* .rectangle+.rectangle {
+            margin-top: 1.5rem;
+        } */
+        .rectangle:not(:first-of-type) {
+            margin-top: 1.5rem;
+        }
+
+        .n1 {
+            transform: rotate(-15deg);
+        }
+
+        .n2 {
+            transform: rotateX(60deg);
+        }
+
+        .n3 {
+            transform: rotateY(60deg);
+        }
+
+        .n4 {
+            transform: skew(303deg, 339deg);
+            ;
+        }
+
+        .n5 {
+            transform: skewX(43deg);
+        }
+
+        .n6 {
+            transform: skewY(8deg);
+        }
+
+        .n7 {
+            /* transform: scale(.85) translateX(50px) rotate(15deg); */
+            scale: .85;
+            translate: 50px 0;
+            rotate: 15deg;
+        }
+
+        .n7:hover {
+            /* transform: scale(2.85); */
+            scale: 2.85;
+        }
+
+        .n8 {
+            transform: scaleX(2.5);
+        }
+
+        .n9 {
+            transform: scaleY(0.5);
+        }
+
+        .n10 {
+            transform: translate(20px, 30px);
+            /* x, y */
+        }
+
+        .n11 {
+            transform: translateX(100px);
+            /* x */
+        }
+
+
+        .n12 {
+            transform: translateY(50px);
+        }
+
+        .j1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .n13 {
+            transform: perspective(1000px) translateZ(-454px)
+        }
+
+        .n14 {
+            transform: perspective(1000px) rotate3d(1, 1, 1, 207deg)
+                /*  rotate3d(x, y, z, deg) */
+        }
+
+        .n15 {
+            transform: perspective(1000px) rotate3d(0, 1, 0, 73deg) scale3d(2.5, 0.5, 1.5);
+            transform-style: preserve-3d;
+        }
+
+        .n15 div:first-of-type {
+            background-color: cyan;
+            transform: perspective(1000px) rotate3d(0, 1, 0, 157deg);
+        }
+
+        .n15 div:nth-of-type(2) {
+            background-color: chocolate;
+            transform: perspective(1000px) rotate3d(0, 1, 0, 123deg);
+        }
+    </style>
+    <title>CSS Transforms </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Rotate</h2>
+        <div class="rectangle n1">numero 1</div>
+        <div class="rectangle n2">numero 2</div>
+        <div class="rectangle n3">numero 3</div>
+        <h2>Skew</h2>
+        <div class="rectangle n4">numero 4</div>
+        <div class="rectangle n5">numero 5</div>
+        <div class="rectangle n6">numero 6</div>
+        <h2>Scale</h2>
+        <div class="rectangle n7">numero 7</div>
+        <div class="rectangle n8">numero 8</div>
+        <div class="rectangle n9">numero 9</div>
+        <h2>Translate</h2>
+        <div class="rectangle n10">numero 10</div>
+        <div class="rectangle n11">numero 11</div>
+        <div class="rectangle n12">numero 12</div>
+
+        <h2>3d Transformation</h2>
+        <div class="rectangle n13">translateZ</div>
+        <div class="rectangle n14">rotate3d</div>
+        <div class="rectangle n15">piano 3d
+            <div>child1</div>
+            <div>child2</div>
+        </div>
+
+    </div>
+
+
+    <div class="container" style="height: 50vh; position: relative;">
+        <h2>absolute + translate(-50%,-50%)</h2>
+        <div class="rectangle j1">numero j1</div>
+    </div>
+
+</body>
+
+</html>

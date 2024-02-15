@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                color: white;
+                background-color: black;
+            }
+
+            100% {
+                opacity: 1;
+                color: white;
+                background-color: black;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation: fade-in 5s 3s both;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-inline: auto;
+            margin-top: 5rem;
+            border: 1px solid red;
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 5rem;
+        }
+
+        .rectangle {
+            width: 250px;
+            padding: 1rem 3rem;
+            background-color: black;
+            color: white;
+        }
+
+        @keyframes grow {
+            from {
+                width: 600px;
+                background-color: red;
+            }
+
+            50% {
+                width: 300px;
+                background-color: yellow;
+            }
+
+            to {
+                width: 1000px;
+                background-color: green;
+            }
+        }
+
+
+        .n1,
+        .n2 {
+            animation: grow 10s 3s both;
+        }
+
+
+        .n1 {
+            background-color: aqua;
+
+        }
+
+        .n2 {
+            background-color: coral;
+
+        }
+    </style>
+    <title>Transitions</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic quae atque qui a nobis vero laborum,
+            quas asperiores deserunt quod, eaque veniam, beatae omnis debitis minus rerum facilis in.</h1>
+        <div class="rectangle n1"></div>
+        <!-- <div class="rectangle n2"></div> -->
+    </div>
+
+
+</body>
+
+</html>
